@@ -817,7 +817,7 @@ namespace Achernar
             {
                 while (true)
                 {
-                    //float v = ExecValueNetwork(color); // 2024.3.11 修正前のコードこちらに合わせていた
+                    //float v = ExecValueNetwork(color);
                     //temp.Add(v);
 
                     if (BTree.ply >= 180)
@@ -825,8 +825,7 @@ namespace Achernar
                         // 手番側の勝率が3%を切っていたら投了する
                         if (v < 0.05)
                         {
-                            //record.winner = color ^ 1;
-                            record.winner = color;//2024.3.11 修正 反転ミス
+                            record.winner = color ^ 1;
                             break;
                         }
                     }
@@ -835,31 +834,11 @@ namespace Achernar
                     {
                         if (v < 0.5)
                         {
-                            //record.winner = color ^ 1;
-                            record.winner = color;//2024.3.11 修正 反転ミス
+                            record.winner = color ^ 1;
                         }
                         else if (v < 0.5)
-                        {
-                            //record.winner = color;
-                            record.winner = color ^ 1;//2024.3.11 修正 反転ミス
-                        }
-                        else if (v == 0.5)
-                        {
-                            record.winner = 1;// 勝率がちょうど50%の場合は白の勝ちにしておく
-                        }
-                        break;
-                    }
-
-                    // 2024.3.11 修正 合法手がなくなってしまう場合があったので対応
-                    if (BTree.RootMoves.Length == 0)
-                    {
-                        if (v < 0.5)
                         {
                             record.winner = color;
-                        }
-                        else if (v < 0.5)
-                        {
-                            record.winner = color ^ 1;
                         }
                         else if (v == 0.5)
                         {
@@ -904,7 +883,7 @@ namespace Achernar
 
                     //Console.WriteLine(BTree.ply.ToString());
 
-                    color ^= 1;// 2024.3.11 メモ ここで手番が反転しているのを失念していた…
+                    color ^= 1;
 
                     ExecPolicyNetwork(color);
                 }

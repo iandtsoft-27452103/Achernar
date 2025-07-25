@@ -228,13 +228,16 @@ namespace Achernar
             {
                 str_board += "None";
             }
-            if (color == 0)
+            if (type == "v")
             {
-                str_board += hyphen + "b";
-            }
-            else
-            {
-                str_board += hyphen + "w";
+                if (color == 0)
+                {
+                    str_board += hyphen + "b";
+                }
+                else
+                {
+                    str_board += hyphen + "w";
+                }
             }
             return str_board;
         }
@@ -321,13 +324,11 @@ namespace Achernar
             }
 
             // 相手の一眼を埋める手でなければ合法手
-            //if (opponent_count <= 3)
-            if (opponent_count <= (li.Count - 1))// 2024.3.17 修正 4隅のli.Countの値は2, 端のli.Countの値は3であった。
+            if (opponent_count <= 3)
             {
                 return true;
             }
-            //else if (opponent_count == 4)// 2024.3.17 修正 4隅のli.Countの値は2, 端のli.Countの値は3であった。
-            else if (opponent_count == li.Count)
+            else if (opponent_count == 4)
             {
                 // 相手の一眼を埋める場合、相手の連の駄目がその一眼のみだったら合法手
                 for (int i = 0; i < opp_near_seq.Count; i++)
