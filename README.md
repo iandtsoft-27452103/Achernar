@@ -6,9 +6,9 @@ This repository is read-only, so Pull Request is not accepted. Thank you for you
 
 If you use this software for commercial, you must pay fees to NVIDIA.
 
-# Achernar
+# Achernar_L
 
-Achernar is a go engine.
+Achernar_L is a go engine.
 
 This software uses follwing technologies.
 
@@ -16,7 +16,7 @@ This software uses follwing technologies.
 
 (2) Monte Carlo Tree Search
 
-(1) is written by PyTorch. (2) is written by C#.
+(1) is written by PyTorch. (2) is written by C#. Achernar_L adopts Lazy Convolutional Neural Network. Achernar adopts normal Convolutional Neural Network.
 
 ## Convolutional Neural Network
 
